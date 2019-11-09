@@ -1,15 +1,26 @@
 {
   "name": "team-work",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
-  "dependencies": {},
+  "dependencies": {
+    "pg": "^7.12.1"
+  },
   "devDependencies": {
     "eslint": "^6.6.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lape15/Capstone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lape15/Capstone/issues"
+  },
+  "homepage": "https://github.com/lape15/Capstone#readme",
+  "description": ""
 }
