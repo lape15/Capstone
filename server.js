@@ -1,6 +1,7 @@
 // imports
-const https = require('https');
+const http = require('http');
 const app = require('./app');
+
 
 // handle port
 const normalizePort = val => {
@@ -38,7 +39,7 @@ const errorHandler = error => {
 };
 
 // create server
-const server = https.createServer(app);
+const server = http.createServer(app);
 
 // Listen to server
 server.on('error', errorHandler);
