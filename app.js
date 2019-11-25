@@ -14,9 +14,14 @@ const { uploader, cloudinaryConfig } = require('./config/cloudinary');
 const { multerUploads } = require('./middleware/multer');
 app.use('*', cloudinaryConfig);
 
+
+// declearing routes
+
 const admin = require ('./routes/admin');
-const employee = require('./routes/employee');
+const employees = require('./routes/employee');
 const gif = require('./routes/gif');
+const comment = require('./routes/comment');
+const likes = require('./routes/like')
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -29,7 +34,12 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(`/api/${process.env.VERSION}/admin`, admin);
-app.use(`/api/${process.env.VERSION}/employee`, employee);
+app.use(`/api/${process.env.VERSION}/employee`, employees);
 app.use(`/api/${process.env.VERSION}/employee`, gif);
+app.use(`/api/${process.env.VERSION}/like`, likes);
+app.use(`/api/${process.env.VERSION}/comment`, comment)
+
+
+
 
 module.exports = app;
