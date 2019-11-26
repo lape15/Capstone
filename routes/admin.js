@@ -6,10 +6,8 @@ const adminCtrl = require('../controllers/admin');
 const auth = require('../middleware/auth');
 
 // router
-router.get('/', auth, adminCtrl.getAdmins);
-router.post('/', auth, adminCtrl.createAdmin);
-router.post('/employee', auth, adminCtrl.createEmployee);
-router.post('/login', adminCtrl.loginAdmin);
+router.get('/employees', auth, adminCtrl.employees);
+router.post('/auth/createuser', auth, adminCtrl.createUser);
 
 module.exports = router;
 

@@ -179,12 +179,12 @@ exports.getPosts = async (req, res, next) => {
     // eslint-disable-next-line no-underscore-dangle
     const userid = req.user._id;
     const { postid } = req.body;
-    const date = Date.now();
     // execute query
     await pool.query('SELECT * FROM likes WHERE userid = $1 AND postid = $2', [userid, postid], async (error, likesResults) => {
       try {
-        if (likesResults.rows === undefined || likesResults.rows.length === 0) {
-          await pool.query('INSERT INTO likes (userid, postid, date) VALUES ($1, $2, $3)', [userid, postid, date], (error, results) => {
+        if (likesResults.rows.length === 0) {
+          console.log(likesResults.rows);
+          await pool.query('INSERT INTO likes (userid, postid) VALUES ($1, $2)', [userid, postid], (error, results) => {
             try {
               res.status(201).json({ status: 'success', message: 'Sucessful.' });
             } catch (error) {
@@ -219,7 +219,7 @@ exports.getPosts = async (req, res, next) => {
     const date = Date.now();
     const { postid, comment } = req.body;
     // execute query
-    await pool.query('INSERT INTO comments (userid, postid, comment, date) VALUES ($1, $2, $3, $4)', [userid, postid, comment, date], (error, results) => {
+    await pool.query('INSERT INTO comments (userid, postid, comment) VALUES ($1, $2, $3)', [userid, postid, comment], (error, results) => {
       try {
         res.status(201).json({ status: 'success', message: 'Comment Added Sucessfully.' });
       } catch (error) {

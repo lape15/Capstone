@@ -5,7 +5,10 @@ const authEmployee = require ('../middleware/authEmployee');
 
 const employeeCtrl = require('../controllers/employee');
 
-router.get('/employees', authEmployee, employeeCtrl.getEmployees);
-router.post('/login', employeeCtrl.loginEmployee);
+router.get('/employees', authEmployee, employeeCtrl.getUsers);
+router.post('/auth/login', employeeCtrl.loginUser);
+
+
+
 
 module.exports = router;

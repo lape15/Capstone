@@ -33,9 +33,9 @@ app.use((req, res, next) => {
 // Using body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-app.use(`/api/${process.env.VERSION}/admin`, admin);
-app.use(`/api/${process.env.VERSION}/employee`, employees);
-app.use(`/api/${process.env.VERSION}/employee`, gif);
+app.use(`/api/${process.env.VERSION}/`, admin);
+app.use(`/api/${process.env.VERSION}/`, employees);
+app.use(`/api/${process.env.VERSION}/`, gif);
 app.use(`/api/${process.env.VERSION}/like`, likes);
 app.use(`/api/${process.env.VERSION}/comment`, comment)
 
